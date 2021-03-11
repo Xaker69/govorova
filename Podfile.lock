@@ -1,16 +1,28 @@
 PODS:
+  - PanModal (1.2.7)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - "PanModal (from `git@github.com:getblaster/PanModal.git`)"
   - SnapKit
 
 SPEC REPOS:
   trunk:
     - SnapKit
 
+EXTERNAL SOURCES:
+  PanModal:
+    :git: "git@github.com:getblaster/PanModal.git"
+
+CHECKOUT OPTIONS:
+  PanModal:
+    :commit: a71183796e5e77146682639e47170b54b82eb38b
+    :git: "git@github.com:getblaster/PanModal.git"
+
 SPEC CHECKSUMS:
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: be936abf0930e4225f4188ce60df6fab271a7eb4
+PODFILE CHECKSUM: 1cc9ac503efb032b860c742a1c9dc828a9bb2680
 
 COCOAPODS: 1.10.1

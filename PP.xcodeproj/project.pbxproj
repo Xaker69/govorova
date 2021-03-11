@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21BA9F7F25FA2454008C2377 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F7E25FA2454008C2377 /* ListHeaderView.swift */; };
+		21BA9F8325FA25FF008C2377 /* ContainerPageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F8225FA25FF008C2377 /* ContainerPageable.swift */; };
+		21BA9F8825FA263D008C2377 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F8725FA263D008C2377 /* ContainerViewController.swift */; };
+		21BA9F8C25FA26E1008C2377 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F8B25FA26E1008C2377 /* ContainerView.swift */; };
+		21BA9F9825FA27A1008C2377 /* LectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9125FA27A1008C2377 /* LectureCell.swift */; };
+		21BA9F9925FA27A1008C2377 /* BlockStreamReportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9225FA27A1008C2377 /* BlockStreamReportsCell.swift */; };
+		21BA9F9A25FA27A1008C2377 /* LecturesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9325FA27A1008C2377 /* LecturesListViewController.swift */; };
+		21BA9F9B25FA27A1008C2377 /* BlockStreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9525FA27A1008C2377 /* BlockStreamModel.swift */; };
+		21BA9F9C25FA27A1008C2377 /* LecturesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9725FA27A1008C2377 /* LecturesList.swift */; };
 		2C55EEB125F9AB5400A289B1 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEB025F9AB5400A289B1 /* UIColor+Hex.swift */; };
 		2C55EEB525F9B0CE00A289B1 /* HilitedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEB425F9B0CE00A289B1 /* HilitedButton.swift */; };
 		2C55EEC125F9BDF800A289B1 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF25F9BDF800A289B1 /* Database.xcdatamodeld */; };
@@ -22,6 +31,15 @@
 
 /* Begin PBXFileReference section */
 		03CB91FA27543CD2096810B8 /* Pods-PP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PP.release.xcconfig"; path = "Target Support Files/Pods-PP/Pods-PP.release.xcconfig"; sourceTree = "<group>"; };
+		21BA9F7E25FA2454008C2377 /* ListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeaderView.swift; sourceTree = "<group>"; };
+		21BA9F8225FA25FF008C2377 /* ContainerPageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerPageable.swift; sourceTree = "<group>"; };
+		21BA9F8725FA263D008C2377 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		21BA9F8B25FA26E1008C2377 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		21BA9F9125FA27A1008C2377 /* LectureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureCell.swift; sourceTree = "<group>"; };
+		21BA9F9225FA27A1008C2377 /* BlockStreamReportsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockStreamReportsCell.swift; sourceTree = "<group>"; };
+		21BA9F9325FA27A1008C2377 /* LecturesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesListViewController.swift; sourceTree = "<group>"; };
+		21BA9F9525FA27A1008C2377 /* BlockStreamModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockStreamModel.swift; sourceTree = "<group>"; };
+		21BA9F9725FA27A1008C2377 /* LecturesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesList.swift; sourceTree = "<group>"; };
 		2C55EEB025F9AB5400A289B1 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2C55EEB425F9B0CE00A289B1 /* HilitedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HilitedButton.swift; sourceTree = "<group>"; };
 		2C55EEC025F9BDF800A289B1 /* Lesson.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lesson.xcdatamodel; sourceTree = "<group>"; };
@@ -50,6 +68,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21BA9F7925FA2123008C2377 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F8125FA25FF008C2377 /* Delegate */,
+				21BA9F7C25FA2430008C2377 /* View */,
+				21BA9F8725FA263D008C2377 /* ContainerViewController.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		21BA9F7C25FA2430008C2377 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F7D25FA243E008C2377 /* Subview */,
+				21BA9F8B25FA26E1008C2377 /* ContainerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21BA9F7D25FA243E008C2377 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F7E25FA2454008C2377 /* ListHeaderView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		21BA9F8125FA25FF008C2377 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F8225FA25FF008C2377 /* ContainerPageable.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		21BA9F8F25FA27A1008C2377 /* LecturesList */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F9025FA27A1008C2377 /* Cell */,
+				21BA9F9425FA27A1008C2377 /* Model */,
+				21BA9F9625FA27A1008C2377 /* View */,
+				21BA9F9325FA27A1008C2377 /* LecturesListViewController.swift */,
+			);
+			path = LecturesList;
+			sourceTree = "<group>";
+		};
+		21BA9F9025FA27A1008C2377 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F9125FA27A1008C2377 /* LectureCell.swift */,
+				21BA9F9225FA27A1008C2377 /* BlockStreamReportsCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		21BA9F9425FA27A1008C2377 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F9525FA27A1008C2377 /* BlockStreamModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21BA9F9625FA27A1008C2377 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21BA9F9725FA27A1008C2377 /* LecturesList.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2C6FC6D625F9A5AC00AEC0AD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +192,8 @@
 		2CA71B0825F955E1001A0C4B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				21BA9F8F25FA27A1008C2377 /* LecturesList */,
+				21BA9F7925FA2123008C2377 /* Container */,
 				2CE8BFF425F959F200CB943A /* Registration */,
 			);
 			path = Modules;
@@ -257,10 +348,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE8BFF725F95A5000CB943A /* RegistrationView.swift in Sources */,
+				21BA9F9925FA27A1008C2377 /* BlockStreamReportsCell.swift in Sources */,
 				2C6FC6D825F9A5F800AEC0AD /* AuthTextField.swift in Sources */,
 				2CA71B0A25F95719001A0C4B /* RegistrationViewController.swift in Sources */,
+				21BA9F8825FA263D008C2377 /* ContainerViewController.swift in Sources */,
+				21BA9F8C25FA26E1008C2377 /* ContainerView.swift in Sources */,
+				21BA9F7F25FA2454008C2377 /* ListHeaderView.swift in Sources */,
+				21BA9F9A25FA27A1008C2377 /* LecturesListViewController.swift in Sources */,
 				2C55EEB125F9AB5400A289B1 /* UIColor+Hex.swift in Sources */,
+				21BA9F9B25FA27A1008C2377 /* BlockStreamModel.swift in Sources */,
+				21BA9F9C25FA27A1008C2377 /* LecturesList.swift in Sources */,
 				2C55EEB525F9B0CE00A289B1 /* HilitedButton.swift in Sources */,
+				21BA9F9825FA27A1008C2377 /* LectureCell.swift in Sources */,
+				21BA9F8325FA25FF008C2377 /* ContainerPageable.swift in Sources */,
 				2CC5058425F9C34E005C5615 /* UIView+Shake.swift in Sources */,
 				2CA71AEE25F9547D001A0C4B /* AppDelegate.swift in Sources */,
 				2C55EEC125F9BDF800A289B1 /* Database.xcdatamodeld in Sources */,

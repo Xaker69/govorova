@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:PP/List+CoreDataClass.swift">
+      location = "group:/Users/maximkhrabryi/Desktop/govorova/PP/User+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:PP/List+CoreDataProperties.swift">
+      location = "group:/Users/maximkhrabryi/Desktop/govorova/PP/User+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:PP.xcodeproj">

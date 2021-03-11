@@ -1,19 +1,11 @@
-//
-//  List+CoreDataProperties.swift
-//  
-//
-//  Created by Максим Храбрый on 11.03.2021.
-//
-//
-
 import Foundation
 import CoreData
 
 
-extension List {
+extension User {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<List> {
-        return NSFetchRequest<List>(entityName: "List")
+        return NSFetchRequest<User>(entityName: "User")
     }
 
     @NSManaged public var name: String

@@ -6,6 +6,6 @@ target 'PP' do
   use_frameworks!
 	
   pod 'SnapKit'
-  # Pods for PP
+  pod 'PanModal', :git => 'git@github.com:getblaster/PanModal.git'
 
 end

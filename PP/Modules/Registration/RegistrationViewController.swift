@@ -22,7 +22,7 @@ class RegistrationViewController: UIViewController {
     //Контекст
     var context: NSManagedObjectContext!
     
-    var lists = [List]()
+    var users = [User]()
     
     private var isRegistration: Bool = false
     
@@ -68,15 +68,15 @@ class RegistrationViewController: UIViewController {
     
     @objc private func enterButtonTapped() {
         if isRegistration {
-            let list = List(context: context)
-            list.name = mainView.loginTextField.text
-            list.password = mainView.passworsTextField.text
+            let user = User(context: context)
+            user.name = mainView.loginTextField.text
+            user.password = mainView.passworsTextField.text
             appDelegate.saveContext()
             fetchData()
         } else {
-            if !lists.map({ $0.name }).contains(mainView.loginTextField.text) {
+            if !users.map({ $0.name }).contains(mainView.loginTextField.text) {
                 mainView.loginTextField.shakeAnimateion()
-            } else if !lists.map({ $0.password }).contains(mainView.passworsTextField.text) {
+            } else if !users.map({ $0.password }).contains(mainView.passworsTextField.text) {
                 mainView.passworsTextField.shakeAnimateion()
             } else {
                 print("success")
@@ -110,11 +110,11 @@ class RegistrationViewController: UIViewController {
     
     private func fetchData() {
         
-        let request: NSFetchRequest<List> = List.fetchRequest()
+        let request: NSFetchRequest<User> = User.fetchRequest()
         //Нужно явное указание типа, чтобы разбить неопределённость между методом класса и тем, что достался от objc
 
         do {
-            lists = try context.fetch(request)
+            users = try context.fetch(request)
         } catch {
             print(error)
         }
