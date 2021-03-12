@@ -6,23 +6,13 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class RegistrationViewController: UIViewController {
     
     var mainView: RegistrationView {
         return view as! RegistrationView
     }
-    
-    //Самое приложение
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
-    //Контейнер
-    var container: NSPersistentContainer!
-    //Контекст
-    var context: NSManagedObjectContext!
-    
-    var users = [User]()
     
     private var isRegistration: Bool = false
     
@@ -34,10 +24,6 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        container = appDelegate.persistentContainer
-        context = container.viewContext
-        fetchData()
-        
         mainView.loginTextField.delegate = self
         mainView.passworsTextField.delegate = self
         
@@ -48,6 +34,83 @@ class RegistrationViewController: UIViewController {
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         mainView.addGestureRecognizer(gesture)
+        
+        
+//        let realm = try! Realm()
+        
+//        let audiense = AudienceModel()
+//        audiense.roominess = 22
+//        audiense.roomNumber = 202
+//        audiense.type = "Практика"
+        
+        // 203 - экономика отрасли
+        // 209 - Психология общения
+        // 305 - Иностранный язык
+        
+        //10 00
+//        let lesson = LessonModel()
+//        lesson.audience = audiense
+//        lesson.code = 305
+//        lesson.type = "Практика"
+//        lesson.timeStart = Date(timeIntervalSince1970: 1615197600)
+//        lesson.timeEnd = Date(timeIntervalSince1970: 1615203000)
+//        lesson.dayOfWeek = "Ср"
+//        lesson.groupNumber = 2335
+//        lesson.name = "Иностранный язык"
+//
+//        //11 40
+//        let lesson1 = LessonModel()
+//        lesson.audience = audiense
+//        lesson.code = 230509
+//        lesson.type = "Лекция"
+//        lesson.timeStart = Date(timeIntervalSince1970: 1615203600)
+//        lesson.timeEnd = Date(timeIntervalSince1970: 1615209000)
+//        lesson.dayOfWeek = "Ср"
+//        lesson.groupNumber = 2335
+//        lesson.name = "Иностранный язык"
+//
+//        // 13 30
+//        let lesson2 = LessonModel()
+//        lesson.audience = audiense
+//        lesson.code = 305
+//        lesson.type = "Практика"
+//        lesson.timeStart = Date(timeIntervalSince1970: 1615210200)
+//        lesson.timeEnd = Date(timeIntervalSince1970: 1615216200)
+//        lesson.dayOfWeek = "Ср"
+//        lesson.groupNumber = 2331
+//        lesson.name = "Иностранный язык"
+//
+//        // 15 20
+//        let lesson3 = LessonModel()
+//        lesson.audience = audiense
+//        lesson.code = 305
+//        lesson.type = "Лекция"
+//        lesson.timeStart = Date(timeIntervalSince1970: 1615216800)
+//        lesson.timeEnd = Date(timeIntervalSince1970: 1615222200)
+//        lesson.dayOfWeek = "Ср"
+//        lesson.groupNumber = 2331
+//        lesson.name = "Иностранный язык"
+//
+//        //17 00
+//        let lesson4 = LessonModel()
+//        lesson.audience = audiense
+//        lesson.code = 209
+//        lesson.type = "Лекция"
+//        lesson.timeStart = Date(timeIntervalSince1970: 1615222800)
+//        lesson.timeEnd = Date(timeIntervalSince1970: 1615228200)
+//        lesson.dayOfWeek = "Вт"
+//        lesson.groupNumber = 2335
+//        lesson.name = "Экономика отрасли"
+//
+//        let lecture = LectureModel()
+//        lecture.name = "Алла Дмитриевна"
+//        lecture.lessons.append(objectsIn: [lesson, lesson1, lesson2, lesson3])
+        
+            
+        
+//        try! realm.write {
+//            realm.add(lecture)
+//        }
     }
     
     @objc private func textFieldTapped(_ sender: UITextField) {
@@ -67,19 +130,34 @@ class RegistrationViewController: UIViewController {
     }
     
     @objc private func enterButtonTapped() {
+        let realm = try! Realm()
         if isRegistration {
-            let user = User(context: context)
-            user.name = mainView.loginTextField.text
-            user.password = mainView.passworsTextField.text
-            appDelegate.saveContext()
-            fetchData()
+            let user = User()
+            user.name = mainView.loginTextField.text ?? ""
+            user.password = mainView.passworsTextField.text ?? ""
+            try! realm.write({
+                realm.add(user)
+            })
+            
+            let vc = ContainerViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+            
         } else {
-            if !users.map({ $0.name }).contains(mainView.loginTextField.text) {
+            let hasLogin = realm.objects(User.self).contains { user -> Bool in
+                user.name == mainView.loginTextField.text
+            }
+            let hasPassword = realm.objects(User.self).contains { user -> Bool in
+                user.password == mainView.passworsTextField.text
+            }
+            if !hasLogin {
                 mainView.loginTextField.shakeAnimateion()
-            } else if !users.map({ $0.password }).contains(mainView.passworsTextField.text) {
+            } else if !hasPassword {
                 mainView.passworsTextField.shakeAnimateion()
             } else {
-                print("success")
+                let vc = ContainerViewController()
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true)
             }
         }
     }
@@ -106,18 +184,6 @@ class RegistrationViewController: UIViewController {
     private func clearTextFields() {
         mainView.loginTextField.text = nil
         mainView.passworsTextField.text = nil
-    }
-    
-    private func fetchData() {
-        
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        //Нужно явное указание типа, чтобы разбить неопределённость между методом класса и тем, что достался от objc
-
-        do {
-            users = try context.fetch(request)
-        } catch {
-            print(error)
-        }
     }
 }
 

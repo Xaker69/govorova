@@ -1,8 +1,8 @@
 import UIKit
 
 class ContainerViewController: UIViewController {
-    
-    var viewControllers = [0: LecturesListViewController(), 1: MuteListViewController(), 2: BlockListViewController()]
+//    var viewControllers = [0: LecturesListViewController(), 1: MuteListViewController(), 2: BlockListViewController()]
+    var viewControllers = [0: LecturesListViewController(), 1: AudienceListViewController()]
 
     var mainView: ContainerView {
         return view as! ContainerView
@@ -44,11 +44,11 @@ class ContainerViewController: UIViewController {
             case is LecturesListViewController:
                 mainView.headerView.selectButton(mainView.headerView.lecturerButton)
                 
-            case is MuteListViewController:
+            case is AudienceListViewController:
                 mainView.headerView.selectButton(mainView.headerView.audienceButton)
-                
-            case is BlockListViewController:
-                mainView.headerView.selectButton(mainView.headerView.groupButton)
+//                
+//            case is BlockListViewController:
+//                mainView.headerView.selectButton(mainView.headerView.groupButton)
                 
                 
             default:

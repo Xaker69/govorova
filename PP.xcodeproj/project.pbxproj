@@ -12,19 +12,26 @@
 		21BA9F8825FA263D008C2377 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F8725FA263D008C2377 /* ContainerViewController.swift */; };
 		21BA9F8C25FA26E1008C2377 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F8B25FA26E1008C2377 /* ContainerView.swift */; };
 		21BA9F9825FA27A1008C2377 /* LectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9125FA27A1008C2377 /* LectureCell.swift */; };
-		21BA9F9925FA27A1008C2377 /* BlockStreamReportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9225FA27A1008C2377 /* BlockStreamReportsCell.swift */; };
+		21BA9F9925FA27A1008C2377 /* SheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9225FA27A1008C2377 /* SheduleCell.swift */; };
 		21BA9F9A25FA27A1008C2377 /* LecturesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9325FA27A1008C2377 /* LecturesListViewController.swift */; };
-		21BA9F9B25FA27A1008C2377 /* BlockStreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9525FA27A1008C2377 /* BlockStreamModel.swift */; };
+		21BA9F9B25FA27A1008C2377 /* LectureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9525FA27A1008C2377 /* LectureModel.swift */; };
 		21BA9F9C25FA27A1008C2377 /* LecturesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA9F9725FA27A1008C2377 /* LecturesList.swift */; };
+		2C0AA43E25FA67A500AF9A2E /* AudienceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0AA43D25FA67A500AF9A2E /* AudienceListViewController.swift */; };
+		2C0AA44325FA683100AF9A2E /* AudienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0AA44225FA683100AF9A2E /* AudienceListView.swift */; };
+		2C0AA44725FA686800AF9A2E /* AudienceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0AA44625FA686800AF9A2E /* AudienceListCell.swift */; };
+		2C0AA44B25FA7A2500AF9A2E /* AddLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0AA44A25FA7A2500AF9A2E /* AddLectureViewController.swift */; };
+		2C0AA45025FA7B9500AF9A2E /* AddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0AA44F25FA7B9500AF9A2E /* AddLectureView.swift */; };
+		2C0AA45625FA88F300AF9A2E /* AddLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0AA45525FA88F300AF9A2E /* AddLessonViewController.swift */; };
+		2C0AA45A25FA890F00AF9A2E /* AddLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0AA45925FA890F00AF9A2E /* AddLessonView.swift */; };
 		2C55EEB125F9AB5400A289B1 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEB025F9AB5400A289B1 /* UIColor+Hex.swift */; };
 		2C55EEB525F9B0CE00A289B1 /* HilitedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEB425F9B0CE00A289B1 /* HilitedButton.swift */; };
-		2C55EEC125F9BDF800A289B1 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C55EEBF25F9BDF800A289B1 /* Database.xcdatamodeld */; };
 		2C6FC6D825F9A5F800AEC0AD /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FC6D725F9A5F800AEC0AD /* AuthTextField.swift */; };
 		2CA71AEE25F9547D001A0C4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71AED25F9547D001A0C4B /* AppDelegate.swift */; };
 		2CA71AF725F95480001A0C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CA71AF625F95480001A0C4B /* Assets.xcassets */; };
 		2CA71AFA25F95480001A0C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CA71AF825F95480001A0C4B /* LaunchScreen.storyboard */; };
 		2CA71B0A25F95719001A0C4B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71B0925F95719001A0C4B /* RegistrationViewController.swift */; };
 		2CC5058425F9C34E005C5615 /* UIView+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC5058325F9C34E005C5615 /* UIView+Shake.swift */; };
+		2CC5059425FA425E005C5615 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC5059325FA425E005C5615 /* User.swift */; };
 		2CE8BFF725F95A5000CB943A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE8BFF625F95A5000CB943A /* RegistrationView.swift */; };
 		BC78CBD2BF9EC9184586BC00 /* Pods_PP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFAFFD41664C83927C33BB8 /* Pods_PP.framework */; };
 /* End PBXBuildFile section */
@@ -36,13 +43,19 @@
 		21BA9F8725FA263D008C2377 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		21BA9F8B25FA26E1008C2377 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		21BA9F9125FA27A1008C2377 /* LectureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureCell.swift; sourceTree = "<group>"; };
-		21BA9F9225FA27A1008C2377 /* BlockStreamReportsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockStreamReportsCell.swift; sourceTree = "<group>"; };
+		21BA9F9225FA27A1008C2377 /* SheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheduleCell.swift; sourceTree = "<group>"; };
 		21BA9F9325FA27A1008C2377 /* LecturesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesListViewController.swift; sourceTree = "<group>"; };
-		21BA9F9525FA27A1008C2377 /* BlockStreamModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockStreamModel.swift; sourceTree = "<group>"; };
+		21BA9F9525FA27A1008C2377 /* LectureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureModel.swift; sourceTree = "<group>"; };
 		21BA9F9725FA27A1008C2377 /* LecturesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturesList.swift; sourceTree = "<group>"; };
+		2C0AA43D25FA67A500AF9A2E /* AudienceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudienceListViewController.swift; sourceTree = "<group>"; };
+		2C0AA44225FA683100AF9A2E /* AudienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudienceListView.swift; sourceTree = "<group>"; };
+		2C0AA44625FA686800AF9A2E /* AudienceListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudienceListCell.swift; sourceTree = "<group>"; };
+		2C0AA44A25FA7A2500AF9A2E /* AddLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLectureViewController.swift; sourceTree = "<group>"; };
+		2C0AA44F25FA7B9500AF9A2E /* AddLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLectureView.swift; sourceTree = "<group>"; };
+		2C0AA45525FA88F300AF9A2E /* AddLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonViewController.swift; sourceTree = "<group>"; };
+		2C0AA45925FA890F00AF9A2E /* AddLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonView.swift; sourceTree = "<group>"; };
 		2C55EEB025F9AB5400A289B1 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2C55EEB425F9B0CE00A289B1 /* HilitedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HilitedButton.swift; sourceTree = "<group>"; };
-		2C55EEC025F9BDF800A289B1 /* Lesson.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lesson.xcdatamodel; sourceTree = "<group>"; };
 		2C6FC6D725F9A5F800AEC0AD /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		2CA71AEA25F9547D001A0C4B /* PP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA71AED25F9547D001A0C4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +64,7 @@
 		2CA71AFB25F95480001A0C4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CA71B0925F95719001A0C4B /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2CC5058325F9C34E005C5615 /* UIView+Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shake.swift"; sourceTree = "<group>"; };
+		2CC5059325FA425E005C5615 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2CE8BFF625F95A5000CB943A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		353864C522E7D1EC7BA48BF2 /* Pods-PP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PP.debug.xcconfig"; path = "Target Support Files/Pods-PP/Pods-PP.debug.xcconfig"; sourceTree = "<group>"; };
 		CAFAFFD41664C83927C33BB8 /* Pods_PP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				21BA9F9125FA27A1008C2377 /* LectureCell.swift */,
-				21BA9F9225FA27A1008C2377 /* BlockStreamReportsCell.swift */,
+				21BA9F9225FA27A1008C2377 /* SheduleCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -126,7 +140,7 @@
 		21BA9F9425FA27A1008C2377 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				21BA9F9525FA27A1008C2377 /* BlockStreamModel.swift */,
+				21BA9F9525FA27A1008C2377 /* LectureModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +149,66 @@
 			isa = PBXGroup;
 			children = (
 				21BA9F9725FA27A1008C2377 /* LecturesList.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C0AA43C25FA678600AF9A2E /* AudienceList */ = {
+			isa = PBXGroup;
+			children = (
+				2C0AA44525FA685700AF9A2E /* Cell */,
+				2C0AA44125FA681500AF9A2E /* View */,
+				2C0AA43D25FA67A500AF9A2E /* AudienceListViewController.swift */,
+			);
+			path = AudienceList;
+			sourceTree = "<group>";
+		};
+		2C0AA44125FA681500AF9A2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C0AA44225FA683100AF9A2E /* AudienceListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C0AA44525FA685700AF9A2E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C0AA44625FA686800AF9A2E /* AudienceListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C0AA44925FA7A0900AF9A2E /* AddLecture */ = {
+			isa = PBXGroup;
+			children = (
+				2C0AA44E25FA7A2D00AF9A2E /* View */,
+				2C0AA44A25FA7A2500AF9A2E /* AddLectureViewController.swift */,
+			);
+			path = AddLecture;
+			sourceTree = "<group>";
+		};
+		2C0AA44E25FA7A2D00AF9A2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C0AA44F25FA7B9500AF9A2E /* AddLectureView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C0AA45425FA870200AF9A2E /* AddLesson */ = {
+			isa = PBXGroup;
+			children = (
+				2C0AA45825FA88FE00AF9A2E /* View */,
+				2C0AA45525FA88F300AF9A2E /* AddLessonViewController.swift */,
+			);
+			path = AddLesson;
+			sourceTree = "<group>";
+		};
+		2C0AA45825FA88FE00AF9A2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C0AA45925FA890F00AF9A2E /* AddLessonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,7 +258,6 @@
 				2CA71B0825F955E1001A0C4B /* Modules */,
 				2C6FC6D625F9A5AC00AEC0AD /* Extensions */,
 				2CA71AF625F95480001A0C4B /* Assets.xcassets */,
-				2C55EEBF25F9BDF800A289B1 /* Database.xcdatamodeld */,
 			);
 			path = PP;
 			sourceTree = "<group>";
@@ -192,6 +265,9 @@
 		2CA71B0825F955E1001A0C4B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2C0AA45425FA870200AF9A2E /* AddLesson */,
+				2C0AA44925FA7A0900AF9A2E /* AddLecture */,
+				2C0AA43C25FA678600AF9A2E /* AudienceList */,
 				21BA9F8F25FA27A1008C2377 /* LecturesList */,
 				21BA9F7925FA2123008C2377 /* Container */,
 				2CE8BFF425F959F200CB943A /* Registration */,
@@ -199,9 +275,18 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		2CC5059125FA41FB005C5615 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CC5059325FA425E005C5615 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2CE8BFF425F959F200CB943A /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				2CC5059125FA41FB005C5615 /* Model */,
 				2CE8BFF525F95A3800CB943A /* View */,
 				2CA71B0925F95719001A0C4B /* RegistrationViewController.swift */,
 			);
@@ -348,22 +433,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE8BFF725F95A5000CB943A /* RegistrationView.swift in Sources */,
-				21BA9F9925FA27A1008C2377 /* BlockStreamReportsCell.swift in Sources */,
+				2C0AA45625FA88F300AF9A2E /* AddLessonViewController.swift in Sources */,
+				21BA9F9925FA27A1008C2377 /* SheduleCell.swift in Sources */,
 				2C6FC6D825F9A5F800AEC0AD /* AuthTextField.swift in Sources */,
 				2CA71B0A25F95719001A0C4B /* RegistrationViewController.swift in Sources */,
+				2C0AA44B25FA7A2500AF9A2E /* AddLectureViewController.swift in Sources */,
+				2C0AA45A25FA890F00AF9A2E /* AddLessonView.swift in Sources */,
 				21BA9F8825FA263D008C2377 /* ContainerViewController.swift in Sources */,
 				21BA9F8C25FA26E1008C2377 /* ContainerView.swift in Sources */,
 				21BA9F7F25FA2454008C2377 /* ListHeaderView.swift in Sources */,
+				2CC5059425FA425E005C5615 /* User.swift in Sources */,
+				2C0AA44325FA683100AF9A2E /* AudienceListView.swift in Sources */,
 				21BA9F9A25FA27A1008C2377 /* LecturesListViewController.swift in Sources */,
 				2C55EEB125F9AB5400A289B1 /* UIColor+Hex.swift in Sources */,
-				21BA9F9B25FA27A1008C2377 /* BlockStreamModel.swift in Sources */,
+				2C0AA43E25FA67A500AF9A2E /* AudienceListViewController.swift in Sources */,
+				21BA9F9B25FA27A1008C2377 /* LectureModel.swift in Sources */,
 				21BA9F9C25FA27A1008C2377 /* LecturesList.swift in Sources */,
 				2C55EEB525F9B0CE00A289B1 /* HilitedButton.swift in Sources */,
 				21BA9F9825FA27A1008C2377 /* LectureCell.swift in Sources */,
+				2C0AA45025FA7B9500AF9A2E /* AddLectureView.swift in Sources */,
 				21BA9F8325FA25FF008C2377 /* ContainerPageable.swift in Sources */,
 				2CC5058425F9C34E005C5615 /* UIView+Shake.swift in Sources */,
 				2CA71AEE25F9547D001A0C4B /* AppDelegate.swift in Sources */,
-				2C55EEC125F9BDF800A289B1 /* Database.xcdatamodeld in Sources */,
+				2C0AA44725FA686800AF9A2E /* AudienceListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,19 +653,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		2C55EEBF25F9BDF800A289B1 /* Database.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2C55EEC025F9BDF800A289B1 /* Lesson.xcdatamodel */,
-			);
-			currentVersion = 2C55EEC025F9BDF800A289B1 /* Lesson.xcdatamodel */;
-			path = Database.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 2CA71AE225F9547D001A0C4B /* Project object */;
 }

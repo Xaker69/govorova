@@ -1,21 +1,25 @@
 import UIKit
-
+import RealmSwift
 class LecturesListViewController: UIViewController, ContainerPageable {
 
     var index: Int {
-        return 2
+        return 0
     }
     
-    private var isRefreshing = false
-    private var searchQuery: String?
-    private var blockList = [BlockStreamModel]()
+    var dictionary = [Int: Bool]()
+    
+    private var lectureList: [LectureModel] {
+        let realm = try! Realm()
         
-    private var mainView: LecturesList {
-        return view as! LecturesList
+        return Array(realm.objects(LectureModel.self))
+    }
+        
+    private var mainView: LecturesListView {
+        return view as! LecturesListView
     }
     
     override func loadView() {
-        let view = LecturesList()
+        let view = LecturesListView()
         self.view = view
     }
     
@@ -26,124 +30,68 @@ class LecturesListViewController: UIViewController, ContainerPageable {
         refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         refreshControl.tintColor = UIColor.white.withAlphaComponent(0.8)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-              
+
         mainView.collectionView.refreshControl = refreshControl
+        mainView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         
         setupСollectionView()
-//        blockListUpdate()
     }
     
     @objc private func refresh() {
-        guard !isRefreshing else { return }
-        isRefreshing = true
-//        blockListUpdate()
+        mainView.collectionView.reloadData()
+        mainView.collectionView.refreshControl?.endRefreshing()
     }
     
-    @objc private func unbanButtonTapped(_ sender: UIButton) {
-//        var model = blockList[index]
-//        if searchQuery != nil {
-//            model = getFilteredBlockList()[index]
-//        }
-//
-//        BlasterAPI.request(StreamAPI.unban(userId: model.user.id)) { result in
-//            do {
-//                _ = try result.get()
-//
-//                DispatchQueue.main.async {
-//                    ToastController.showNotification(title: "Хорошая работа, Олег", image: UIImage(named: "success"))
-//                    self.blockList.remove(at: sender.tag)
-//                    self.mainView.collectionView.performBatchUpdates {
-//                        self.mainView.collectionView.deleteSections(IndexSet(arrayLiteral: sender.tag))
-//                    }
-//                    self.blockListUpdate()
-//                }
-//            } catch {
-//                DispatchQueue.main.async {
-//                    ToastController.showNotification(title: error.localizedDescription)
-//                }
-//            }
-//        }
+    @objc private func addButtonTapped(_ sender: UIButton) {
+        let vc = AddLectureViewController()
+        vc.nameChangedAction = { [weak self] in
+            self?.mainView.collectionView.reloadData()
+        }
+        presentPanModal(vc)
     }
     
-    private lazy var miniProfileAction: (Int) -> () = { [weak self] index in
-//        guard let self = self else { return }
-//        var model = self.blockList[index]
-//        if self.searchQuery != nil {
-//            model = self.getFilteredBlockList()[index]
-//        }
-//
-//        DispatchQueue.global().async {
-//            BlasterAPI.request(UserProfileAPI.get(id: model.user.id)) { result in
-//                do {
-//                    let model = try result.get().decode(LiveOverlayUserModel.self)
-//                    DispatchQueue.main.async {
-//                        self.presentPanModal(ModerationMiniProfileController(user: model))
-//                    }
-//                } catch {
-//                    DispatchQueue.main.async {
-//                        ToastController.showNotification(title: error.localizedDescription)
-//                    }
-//                }
-//            }
-//        }
+    @objc private func moreButtonTapped(_ sender: UIButton) {
+        let vc = AddLessonViewController(lecture: lectureList[sender.tag].name)
+        present(vc, animated: true)
     }
     
     private func setupСollectionView() {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
     }
-            
     
 }
 
 // MARK: - UICollectionViewDataSource
 
-extension LecturesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension LecturesListViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if searchQuery != nil {
-            return getFilteredBlockList().count
-        }
-        return blockList.count
+        return lectureList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if searchQuery != nil {
-            return getFilteredBlockList()[section].isShort == false ? 2 : 1
-        }
-        return blockList[section].isShort == false ? 2 : 1
+        return dictionary[section] == false ? 2 : 1
+//        return dictionary[section] == false ? lectureList[section].lessons.count : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var model = blockList[indexPath.section]
-        if searchQuery != nil {
-            model = getFilteredBlockList()[indexPath.section]
-        }
+        let model = lectureList[indexPath.section]
         
         if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MutedUserCell.description(), for: indexPath) as! MutedUserCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LectureCell.description(), for: indexPath) as! LectureCell
             
-            cell.arrowImageView.transform = model.isShort == false ? CGAffineTransform(rotationAngle: CGFloat.pi) : .identity
-            cell.arrowImageView.tintColor = model.isShort == false ? .white : UIColor(hex6: 0xEBEBF5).withAlphaComponent(0.3)
-            cell.avatarImageView.kf.setImage(with: model.user.avatar)
-            cell.untilLabel.text = getEndString(end: model.end)
-            cell.nameLabel.text = model.user.name
-            cell.descriptionLabel.attributedText = getDescString(authorName: model.moderator.name, reason: model.reasonId)
-            cell.bannedAtLabel.text = getTimeString(start: model.start)
-            cell.avatarAction = miniProfileAction
-            cell.avatarImageView.tag = indexPath.section
+            cell.titleLabel.text = model.name
+            cell.moreButton.tag = indexPath.section
+            cell.moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
             
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BlockStreamReportsCell.description(), for: indexPath) as! BlockStreamReportsCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SheduleCell.description(), for: indexPath) as! SheduleCell
             
-            cell.reportStack.removeAllArrangedSubviews()
-            cell.streamNameStack.removeAllArrangedSubviews()
-            cell.setupReports(reports: model.reports)
-            cell.setupStreamName(name: model.name, startStream: model.start, endStream: model.end)
-            cell.previews = model.previews
-            cell.unbanButton.tag = indexPath.section
-            cell.unbanButton.addTarget(self, action: #selector(unbanButtonTapped(_:)), for: .touchUpInside)
+            cell.dayOfWeekLabel.text = model.lessons[indexPath.item - 1].dayOfWeek
+            cell.roomNumber.text = model.lessons[indexPath.item - 1].audience.roomNumber.description
+            cell.titleLabel.text = model.lessons[indexPath.item - 1].name
             
             return cell
         }
@@ -151,34 +99,40 @@ extension LecturesViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: indexPath.section)) as! MutedUserCell
+        let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: indexPath.section)) as! LectureCell
         cell.rotateArrow()
-        var model = blockList[indexPath.section]
-        if searchQuery != nil {
-            model = getFilteredBlockList()[indexPath.section]
-        }
+//        let model = lectureList[indexPath.section]
         
         collectionView.performBatchUpdates {
-            if model.isShort == false {
+            if dictionary[indexPath.section] == false {
+//                var indexArray = [IndexPath]()
+//                for (index, _) in model.lessons.enumerated() {
+//                    indexArray.append(IndexPath(item: index, section: indexPath.section))
+//                }
+//                collectionView.deleteItems(at: indexArray)
                 collectionView.deleteItems(at: [IndexPath(item: 1, section: indexPath.section)])
-                model.isShort = true
+                
+                dictionary[indexPath.section] = true
             } else {
+//                var indexArray = [IndexPath]()
+//                for (index, _) in model.lessons.enumerated() {
+//                    indexArray.append(IndexPath(item: index, section: indexPath.section))
+//                }
+//                collectionView.insertItems(at: indexArray)
                 collectionView.insertItems(at: [IndexPath(item: 1, section: indexPath.section)])
-                model.isShort = false
+                
+                dictionary[indexPath.section] = false
             }
+            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var model = blockList[indexPath.section]
-        if searchQuery != nil {
-            model = getFilteredBlockList()[indexPath.section]
-        }
+//        var model = blockList[indexPath.section]
+//        if searchQuery != nil {
+//            model = getFilteredBlockList()[indexPath.section]
+//        }
         
-        return model.isShort == false ? CGSize(width: UIScreen.main.bounds.width, height: 150 + 70 + 160) : CGSize(width: UIScreen.main.bounds.width, height: 150)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        mainView.searchBar.resignFirstResponder()
+        return CGSize(width: UIScreen.main.bounds.width, height: 50)
     }
 }
